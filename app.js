@@ -19,19 +19,14 @@ function runEvent(e) {
   if (arr.map(x => x == 1 || x == 0)) {
     const result = parseInt(input.value, 2);
     insertNode(result);
-  } else {
-    alert("Digite apenas números binários!");
-    input.value = "";
   }
   e.preventDefault();
 }
 
-function insertNode(value, e) {
+function insertNode(value) {
   form.appendChild(paragraph);
   form.appendChild(span);
   paragraph.textContent = "O valor binário em decimal é: ";
   span.textContent = `${value}`;
-
   input.value = "";
-  e.preventDefault();
 }
