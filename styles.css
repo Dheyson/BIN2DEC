@@ -1,3 +1,11 @@
+:root {
+  --base--color--primary: #0069ed;
+  --base--color--secondary: #0053ba;
+  --base--background-color: #ff662e;
+  --base--border--color: #338fff;
+  --base--color--white: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +13,7 @@
 
 body {
   text-align: center;
-  background-color: whitesmoke;
+  background-color: var(--base--color--white);
   box-sizing: border-box;
 }
 
@@ -18,18 +26,18 @@ body {
   box-shadow: gray;
 }
 
-.container__colors {
-  background-color: hsl(16, 100%, 59%);
-  border: 1em solid hsl(213, 100%, 60%);
+.container--background {
+  background-color: var(--base--background-color);
+  border: 1em solid var(--base--border--color);
 }
 
-.header {
+.container__header {
   margin-bottom: 0.1em;
-  color: white;
+  color: var(--base--color--white);
   text-transform: uppercase;
 }
 
-.paragraph__width {
+.container__p {
   color: white;
   text-align: justify;
   overflow-wrap: break-word;
@@ -39,7 +47,7 @@ body {
   margin-bottom: 1em;
 }
 
-input[type="text"] {
+.container__input {
   -webkit-appearance: none;
   appearance: none;
   border: none;
@@ -50,31 +58,34 @@ input[type="text"] {
   text-align: center;
 }
 
-button {
+.container__button {
   display: inline-block;
   border: none;
   padding: 0.5rem 6rem;
   margin: 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: #0069ed;
-  color: #ffffff;
-  font-family: sans-serif;
-  font-size: 1rem;
+  background: var(--base--color--primary);
   cursor: pointer;
-  text-align: center;
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
+.container__button--color {
+  color: var(--base--color--white);
+  font-family: sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+}
+
 button:hover,
 button:focus {
-  background: #0053ba;
+  background: var(--base--color--secondary);
 }
 
 button:focus {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--base--color--white);
   outline-offset: -4px;
 }
 
@@ -82,17 +93,17 @@ button:active {
   transform: scale(0.99);
 }
 
-.paragraph__result {
-  color: white;
+.result__paragraph {
+  color: var(--base--color--white);
   text-transform: uppercase;
   margin-top: 1em;
   font-size: 1.4em;
   font-weight: bolder;
 }
 
-.span__decimal {
-  background-color: whitesmoke;
-  color: #0053ba;
+.result__span {
+  background-color: var(--base--color--white);
+  color: var(--base--color--secondary);
   text-transform: uppercase;
   margin-top: 1.4em;
   font-size: 3em;

@@ -13,20 +13,20 @@
 </head>
 
 <body>
-    <div class="container container__colors">
-        <h1 class="header">
+    <div class="container container--background">
+        <h1 class="container__header">
             Bin2Dec
         </h1>
-        <p class="paragraph__width">
+        <p class="container__p">
             Binary is the number system all digital computers are based on.
             Therefore it's important for developers to understand binary, or base 2, mathematics.
             Bin2Dec allows the user to enter strings of up to 8 binary digits, 0's and 1's,
             in any sequence and then displays its decimal equivalent.
         </p>
         <form>
-            <input type="text" name="number" maxlength="8" id="convert">
+            <input type="text" name="number" maxlength="8" id="convert" class="container__input">
             <br>
-            <button type="submit">Calcular</button>
+            <button type="submit" class="container__button container__button--color">Calcular</button>
         </form>
     </div>
     <script src="app.js"></script>

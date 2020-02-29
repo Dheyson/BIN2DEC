@@ -5,8 +5,8 @@ const span = document.createElement("span");
 
 let sum = 0;
 
-paragraph.className = "paragraph__result";
-span.className = "span__decimal";
+paragraph.className = "result__paragraph";
+span.className = "result__span";
 form.addEventListener("submit", runEvent);
 
 function runEvent(e) {
