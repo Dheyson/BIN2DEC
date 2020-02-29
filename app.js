@@ -1,15 +1,11 @@
 const form = document.querySelector("form");
 const input = document.getElementById("convert");
-const paragraph = document.createElement("p");
-const span = document.createElement("span");
 
-let sum = 0;
-
-paragraph.className = "result__paragraph";
-span.className = "result__span";
 form.addEventListener("submit", runEvent);
 
 function runEvent(e) {
+  // let sum = 0;
+
   // console.log(
   //   [...input.value].reverse().forEach(function(element, index) {
   //    sum = sum + (element * Math.pow(2, index));
@@ -24,9 +20,23 @@ function runEvent(e) {
 }
 
 function insertNode(value) {
+  const paragraph = document.createElement("p"),
+    span = document.createElement("span");
+
+  paragraph.className = "result__paragraph";
+  span.className = "result__span";
+
+  appendNodes(paragraph, span, value);
+  cleanValue(input);
+}
+
+function cleanValue(node) {
+  return (node.value = "");
+}
+
+function appendNodes(paragraph, span, value) {
   form.appendChild(paragraph);
   form.appendChild(span);
   paragraph.textContent = "O valor binário em decimal é: ";
   span.textContent = `${value}`;
-  input.value = "";
 }
