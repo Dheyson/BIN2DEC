@@ -20,15 +20,21 @@ function runEvent(e) {
 }
 
 function insertNode(value) {
+ 
+   if( value ) {
 
-  let qryParagraph = document.querySelector(`.result__paragraph`),
-  qrySpan = document.querySelector(`.result__span`)
-
-  if ( !qryParagraph && !qrySpan ) {
-    appendNodes( 'result__paragraph' , 'result__span', value )
+    let qryParagraph = document.querySelector(`.result__paragraph`),
+    qrySpan = document.querySelector(`.result__span`)
+  
+    if ( !qryParagraph && !qrySpan ) {
+      appendNodes( 'result__paragraph' , 'result__span', value )
+    }
+    setValue( 'result__span', value )
+    cleanValue(input);
+    
+  }else{
+    appendNodes( 'result__paragraph' , 'result__span', 'Ops, you should type a binary digit' )
   }
-  setValue( 'result__span', value )
-  cleanValue(input);
 
 }
 
