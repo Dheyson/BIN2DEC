@@ -52,7 +52,7 @@ function appendNodes( paragraphClass, spanClass, value ) {
 
 }
 
-function setValue( nameCalss , value ) {
-  let pai = qrySpan = document.querySelector( `.${nameCalss}` )
-  pai.innerHTML = `${value}`;
+function setValue( nameClass , value ) {
+  let parent = qrySpan = document.querySelector( `.${nameClass}` )
+  parent.textContent = `${value}`;
 }
