@@ -20,23 +20,39 @@ function runEvent(e) {
 }
 
 function insertNode(value) {
-  const paragraph = document.createElement("p"),
-    span = document.createElement("span");
 
-  paragraph.className = "result__paragraph";
-  span.className = "result__span";
+  let qryParagraph = document.querySelector(`.result__paragraph`),
+  qrySpan = document.querySelector(`.result__span`)
 
-  appendNodes(paragraph, span, value);
+  if ( !qryParagraph && !qrySpan ) {
+    appendNodes( 'result__paragraph' , 'result__span', value )
+  }
+  setValue( 'result__span', value )
   cleanValue(input);
+
 }
 
 function cleanValue(node) {
   return (node.value = "");
 }
 
-function appendNodes(paragraph, span, value) {
+function appendNodes( paragraphClass, spanClass, value ) {
+
+  const paragraph = document.createElement("p"),
+  span = document.createElement("span");
+
+  paragraph.className = paragraphClass;
+  span.className = spanClass; 
+  
   form.appendChild(paragraph);
   form.appendChild(span);
+
   paragraph.textContent = "O valor binário em decimal é: ";
   span.textContent = `${value}`;
+
+}
+
+function setValue( nameCalss , value ) {
+  let pai = qrySpan = document.querySelector( `.${nameCalss}` )
+  pai.innerHTML = `${value}`;
 }
