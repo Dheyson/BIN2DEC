@@ -1,9 +1,11 @@
 :root {
   --base--color--primary: #0069ed;
   --base--color--secondary: #0053ba;
-  --base--background-color: #ff662e;
+  --base--background-color: #0005;
   --base--border--color: #338fff;
   --base--color--white: #fff;
+  --base--color--dark: #363636;
+
 }
 
 * {
@@ -28,7 +30,7 @@ body {
 
 .container--background {
   background-color: var(--base--background-color);
-  border: 1em solid var(--base--border--color);
+  border: 1em solid var(--base--color--dark);
 }
 
 .container__header {

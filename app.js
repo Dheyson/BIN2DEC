@@ -1,64 +1,78 @@
-const form = document.querySelector("form");
-const input = document.getElementById("convert");
+var form = document.querySelector("form");
+var input = document.getElementById("convert");
 
 form.addEventListener("submit", runEvent);
 
+/**
+ * @description Method run a array map into the string values
+ * @param e
+ * @requires e event triggered and prevent a default behavior
+ * @returns
+ */
 function runEvent(e) {
-  // let sum = 0;
-
-  // console.log(
-  //   [...input.value].reverse().forEach(function(element, index) {
-  //    sum = sum + (element * Math.pow(2, index));
-  //   })
-  // );
   const arr = [...input.value];
-  if (arr.map(x => x == 1 || x == 0)) {
+  if (arr.map((x) => x == 1 || x == 0)) {
     const result = parseInt(input.value, 2);
     insertNode(result);
   }
   e.preventDefault();
 }
 
+/**
+ * @description Method to perform a node insertion
+ * @param value
+ * @requires value is used to insert a DOM Node into the HTML
+ * @returns
+ */
 function insertNode(value) {
- 
-   if( value ) {
-
-    let qryParagraph = document.querySelector(`.result__paragraph`),
-    qrySpan = document.querySelector(`.result__span`)
-  
-    if ( !qryParagraph && !qrySpan ) {
-      appendNodes( 'result__paragraph' , 'result__span', value )
+  if (value) {
+    let queryParagraph = document.querySelector(`.result__paragraph`);
+    let querySpan = document.querySelector(`.result__span`);
+    if (!queryParagraph && !querySpan) {
+      appendNodes("result__paragraph", "result__span", value);
     }
-    setValue( 'result__span', value )
+    setValue("result__span", value);
     cleanValue(input);
-    
-  }else{
-    appendNodes( 'result__paragraph' , 'result__span', 'Ops, you should type a binary digit' )
+  } else {
+    appendNodes(
+      "result__paragraph",
+      "result__span",
+      "Ops, you should type a binary digit"
+    );
   }
-
 }
 
+/**
+ * @description Method to clean the input value
+ * @param node
+ * @requires node is the typed value to be cleaned
+ * @returns
+ */
 function cleanValue(node) {
   return (node.value = "");
 }
 
-function appendNodes( paragraphClass, spanClass, value ) {
-
-  const paragraph = document.createElement("p"),
-  span = document.createElement("span");
+/**
+ * @description Method to append nodes into the dom
+ * @param paragraphClass
+ * @requires value is used to insert a DOM Node into the HTML
+ * @returns
+ */
+function appendNodes(paragraphClass, spanClass, value) {
+  const paragraph = document.createElement("p");
+  const span = document.createElement("span");
 
   paragraph.className = paragraphClass;
-  span.className = spanClass; 
-  
+  span.className = spanClass;
+
   form.appendChild(paragraph);
   form.appendChild(span);
 
   paragraph.textContent = "O valor binário em decimal é: ";
   span.textContent = `${value}`;
-
 }
 
 function setValue( nameClass , value ) {
-  let parent = qrySpan = document.querySelector( `.${nameClass}` )
-  parent.textContent = `${value}`;
+  let parent = document.querySelector( `.${nameClass}` )
+  return parent.textContent = `${value}`;
 }
